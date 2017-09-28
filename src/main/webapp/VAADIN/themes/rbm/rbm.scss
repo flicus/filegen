@@ -1,0 +1,34 @@
+@import "../valo/valo.scss";
+
+@mixin rbm {
+  @include valo;
+
+  .v-caption-icons {
+    font-family: Vaadin-Icons;
+  }
+
+  .v-label {
+    font-family: Vaadin-Icons;
+  }
+
+  .v-icon {
+    color: #1b87e3;
+  }
+
+  .primary .v-icon {
+    color: white;
+  }
+
+  .grey {
+    color: darkgrey;
+  }
+
+  .green {
+    color: green;
+  }
+
+  .red {
+    color: red;
+  }
+
+}
