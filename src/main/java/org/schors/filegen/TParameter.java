@@ -10,4 +10,6 @@ public abstract class TParameter {
     public abstract String apply(String template);
 
     public abstract String getName();
+
+    public abstract void reset();
 }

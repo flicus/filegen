@@ -1,5 +1,6 @@
 package org.schors.filegen.parameters;
 
+import com.vaadin.server.Sizeable;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.TextField;
 import org.schors.filegen.TParameter;
@@ -12,6 +13,8 @@ public class IncrementingNumber extends TParameter {
     private long current = 0;
 
     public IncrementingNumber() {
+        start.setWidth(100, Sizeable.Unit.PERCENTAGE);
+        name.setWidth(100, Sizeable.Unit.PERCENTAGE);
         start.addValueChangeListener(event -> {
             current = Long.valueOf(start.getValue());
         });
@@ -49,5 +52,10 @@ public class IncrementingNumber extends TParameter {
     @Override
     public String getName() {
         return name.getValue();
+    }
+
+    @Override
+    public void reset() {
+        current = Long.valueOf(start.getValue());
     }
 }
