@@ -56,12 +56,16 @@ public class TheApp extends UI {
     protected void init(VaadinRequest request) {
 
         notChecked.addStyleName("grey");
+        notChecked.setDescription("Template has not been validated");
         correct.addStyleName("green");
+        correct.setDescription("Template validated and correct");
         correct.setVisible(false);
         incorrect.addStyleName("red");
         incorrect.setVisible(false);
+        incorrect.setDescription("Template has some issues, please correct");
 
         generate.setIcon(VaadinIcons.BOLT);
+        generate.setDescription("Generate file from template and given parameters");
         generate.setEnabled(false);
         generate.addClickListener(event -> {
             generate.setEnabled(false);
@@ -90,6 +94,7 @@ public class TheApp extends UI {
         });
 
         validate.setIcon(VaadinIcons.SEARCH);
+        validate.setDescription("Validate template with current parameters");
         validate.addClickListener(event -> {
             final String[] tpl = {new String("" + templateEditor.getValue())};
             data.stream().forEach(parameter -> {
@@ -112,6 +117,7 @@ public class TheApp extends UI {
 
         download.setEnabled(false);
         download.setIcon(VaadinIcons.DOWNLOAD);
+        download.setDescription("Download generated file");
         download.addClickListener(event -> {
             StreamResource r = new StreamResource((StreamResource.StreamSource) () -> {
                 try {
@@ -207,6 +213,7 @@ public class TheApp extends UI {
 
         Button incNumber = new Button("Number");
         incNumber.addStyleName("primary");
+        incNumber.setDescription("Incrementing counter parameter");
         DragSourceExtension<Button> source = new DragSourceExtension<>(incNumber);
         source.setEffectAllowed(EffectAllowed.COPY);
         source.setDragData(IncrementingNumber.class);
@@ -214,6 +221,7 @@ public class TheApp extends UI {
 
         Button uid = new Button("UID");
         uid.addStyleName("primary");
+        uid.setDescription("Generate unique id");
         source = new DragSourceExtension<>(uid);
         source.setEffectAllowed(EffectAllowed.COPY);
         source.setDragData(GUIDNumber.class);
